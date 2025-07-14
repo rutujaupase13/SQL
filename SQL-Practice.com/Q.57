@@ -1,0 +1,6 @@
+SELECT  P.patient_id, P.first_name, P.last_name
+FROM patients P
+left join admissions A
+on P.patient_id = A.patient_id
+where A.patient_id is null; // here we can use left exclusive join 
+// left exclusive join : returns all records from the left table (table1), and the no matching records from the right table (table2).
