@@ -1,0 +1,7 @@
+SELECT  concat(first_name,' ',last_name) patient_name ,round((height / 30.48),1) height ,
+round((weight * 2.205),0) weight , birth_date , 
+case
+   when gender = 'M' then  'MALE'
+   when gender = 'F' then  'FEMALE'
+  end as gender 
+FROM patients
