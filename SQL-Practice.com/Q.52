@@ -1,0 +1,6 @@
+SELECT D.doctor_id, concat(D.first_name,' ' ,D.last_name) full_name , Min(A.admission_date) as first_admission_date,
+Max(A.admission_date) as last_admission_date
+FROM doctors D
+join admissions A
+on A.attending_doctor_id = D.doctor_id
+group by D.doctor_id ;
