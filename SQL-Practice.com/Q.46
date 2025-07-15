@@ -1,0 +1,5 @@
+SELECT province_id, sum(height) as sum_height
+FROM patients
+group by province_id
+having sum(height) >= 7000;
+//having clause is  used to filter query results based on aggregate functions
