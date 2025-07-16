@@ -1,0 +1,5 @@
+SELECT day(admission_date) as day_number ,
+count(admission_date) as number_of_admissions
+FROM admissions
+GROUP BY day_number
+order by number_of_admissions desc;
