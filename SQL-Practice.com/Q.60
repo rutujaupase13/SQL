@@ -1,0 +1,6 @@
+SELECT patient_id , weight , height, 
+(case 
+    when (weight / POWER(height, 2)) >= 30 then 1
+    else 0
+end) as isObese
+FROM patients;
