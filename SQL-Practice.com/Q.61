@@ -1,0 +1,8 @@
+SELECT P.patient_id, P.first_name as patient_first_name, P.last_name as patient_last_name , 
+D.specialty as attending_doctor_speciality
+FROM patients P
+join admissions A 
+on P.patient_id = A.patient_id
+join doctors D 
+on A.attending_doctor_id = D.doctor_id
+where A.diagnosis = 'Epilepsy' and D.first_name = 'Lisa';
