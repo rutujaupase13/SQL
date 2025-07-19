@@ -1,0 +1,26 @@
+SELECT Distinct P.patient_id, concat(P.patient_id,length(P.last_name),year(P.birth_date)) as temp_password
+from patients P 
+left join admissions A
+on P.patient_id = A.patient_id
+where A.patient_id is Not null;
+
+
+  // OR
+
+  
+select
+  distinct p.patient_id,
+  p.patient_id || floor(len(last_name)) || floor(year(birth_date)) as temp_password
+from patients p
+  join admissions a on p.patient_id = a.patient_id;
+
+  
+  // OR
+
+  select
+  pa.patient_id,
+  ad.patient_id || floor(len(pa.last_name)) || floor(year(pa.birth_date)) as temp_password
+from patients pa
+  join admissions ad on pa.patient_id = ad.patient_id
+group by pa.patient_id;
+  
