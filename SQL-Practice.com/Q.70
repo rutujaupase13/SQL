@@ -1,0 +1,8 @@
+SELECT D.doctor_id , concat(first_name, ' ' , last_name) as doctor_name ,
+D.specialty as specialty , year(A.admission_date) as selected_year ,
+count(A.patient_id) as total_admissions 
+FROM doctors D 
+left join admissions A 
+on D.doctor_id = A.attending_doctor_id
+group by year(A.admission_date) , D.doctor_name
+order by D.doctor_id;
