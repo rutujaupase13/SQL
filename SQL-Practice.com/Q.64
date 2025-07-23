@@ -1,0 +1,7 @@
+SELECT P.province_name as province_name 
+FROM province_names P 
+join patients Pa 
+on P.province_id = Pa.province_id
+group by P.province_name
+having count(case when gender = 'M' then 1 end) > count(case when gender = 'F' then 1 end);                        
+
