@@ -1,0 +1,13 @@
+SELECT  
+    case 
+      when patient_id % 2 == 0 then 'yes' 
+      else 'No'  
+      end as has_insurance,
+      
+      sum( case when patient_id % 2 == 0 then 10
+          else 50
+          end ) as cost_after_insurence
+  
+   FROM admissions
+   group by has_insurance;
+
