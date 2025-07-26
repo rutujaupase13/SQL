@@ -1,0 +1,3 @@
+SELECT concat(Round(Count(gender) * 100.00 / (select count(gender) from patients) , 2),'%') as percent_of_male_patients
+FROM patients
+where gender = 'M'
