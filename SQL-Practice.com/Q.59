@@ -1,4 +1,4 @@
 SELECT count(patient_id) patients_in_group,FLOOR(weight / 10) * 10 as weight_group
 FROM patients
-group by weight
-order by weight desc;
+group by weight_group
+order by weight_group desc;
