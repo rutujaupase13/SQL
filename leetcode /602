@@ -1,0 +1,14 @@
+/* Write your T-SQL query statement below */
+SELECT TOP 1 id, sum(cnt) AS num FROM (
+SELECT requester_id as id, count(accepter_id) as cnt
+FROM RequestAccepted
+GROUP BY requester_id
+
+UNION ALL
+
+SELECT accepter_id as id, count(requester_id) as cnt
+FROM RequestAccepted
+GROUP BY accepter_id
+)q
+GROUP BY id
+ORDER BY sum(cnt) DESC
