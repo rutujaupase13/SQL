@@ -1,0 +1,9 @@
+select unique_id ,name  
+from Employees as E
+left join EmployeeUNI as EU  -- left join is used because returns all records from
+-- the left table and the matched records from the right table.  
+on E.id = EU.id
+
+
+/* When you use a LEFT JOIN, SQL automatically fills unmatched rows with NULL for
+  the columns coming from the right table. You don’t need to assign them manually.*/
