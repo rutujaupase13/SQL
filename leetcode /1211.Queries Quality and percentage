@@ -1,0 +1,5 @@
+select query_name , ROUND(SUM(SELECT rating / position AS ratio
+FROM your_table;)) / COUNT(RATING)),2) as quality ,
+ROUND((COUNT(CASE WHEN rating < 3 THEN 1 END) * 100.0 / COUNT(*)),2) AS poor_query_percentage 
+from Queries
+group by query_name;
