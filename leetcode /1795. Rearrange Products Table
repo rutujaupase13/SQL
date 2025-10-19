@@ -1,0 +1,19 @@
+# Write your MySQL query statement below
+select P1.product_id ,'store1' as store, P1.store1 as price
+from Products P1
+join Products P2
+on P1.product_id = P2.product_id
+where P1.store1 is not null
+union
+select P2.product_id ,'store2' as store, P2.store2 as price
+from Products P2
+join products P3
+on P2.product_id = P3.product_id
+where P2.store2 is not null 
+union
+select P3.product_id ,'store3' as store, P3.store3 as price
+from Products P3
+join products P4
+on P3.product_id = P4.product_id
+where P3.store3 is not null 
+order by store asc ;
